@@ -1,0 +1,120 @@
+{
+    "apm": {
+        "input_channel": 1,
+        "simulating": true,
+        "sampling rate": 16000,
+        "samples_per_channel": 160,
+        "verbose": true,
+        "progress": true,
+        "micarray_multithread_enable": false,
+        "multithread_enable": false,
+        "modules": [
+            {
+                "micarray": {
+                    "enable": false,
+                    "device comment": [
+                        "maxhub-0",
+                        "Xmos-1",
+                        "Aver-2",
+                        "Dten-3",
+                        "Suirui-4"
+                    ],
+                    "device": 3,
+                    "logpath": [
+                        {
+                            "device": "maxhub",
+                            "path": "",
+                            "filename": "",
+                            "chNum": 13
+                        },
+                        {
+                            "device": "Xmos",
+                            "path": "",
+                            "filename": "",
+                            "chNum": 8
+                        },
+                        {
+                            "device": "Aver",
+                            "path": "",
+                            "filename": "",
+                            "chNum": 13
+                        },
+                        {
+                            "device": "Dten",
+                            "path": "",
+                            "filename": "",
+                            "chNum": 15
+                        },
+                        {
+                            "device": "Suirui",
+                            "path": "",
+                            "filename": "",
+                            "chNum": 14
+                        }
+                    ],
+                    "bf mode comment": "// 0 -fas, 1-das, 2- multibeam",
+                    "bf_mode": 1
+                },
+                "hpf": {
+                    "enable": false
+                },
+                "aec": {
+                    "enable": true,
+                    "suppression_level": 3,
+                    "drift_compensation": false,
+                    "logpath": {
+                        "aecfar": "",
+                        "aecNear": "",
+                        "aecOut": ""
+                    },
+                    "aecm_enable": false,
+                    "aecm_logpath": {
+                        "aecfar": "",
+                        "aecNear": "",
+                        "aecOut": ""
+                    }
+                },
+                "ns": {
+                    "enable": true,
+                    "mode comment": [
+                        "low",
+                        "moderate",
+                        "high",
+                        "very_high",
+                        "super_high",
+                        "comfortable"
+                    ],
+                    "mode": "comfortable",
+                    "debugmode": false
+                },
+                "agc": {
+                    "enable": true,
+                    "mode comment": [
+                        "0-analog",
+                        "1-adaptive_digital",
+                        "2-fixed_digital"
+                    ],
+                    "mode": "",
+                    "compression_gain_calc_enable": true,
+                    "target_level": 9,
+                    "compression_gain": 0,
+                    "limiter_enable": true
+                },
+                "endpoint": {
+                    "enable": false,
+                    "outpath": ""
+                },
+                "vad": {
+                    "enable": false,
+                    "outpath": ""
+                },
+                "transient": {
+                    "enable": false
+                },
+                "nc": {
+                    "enable": false
+                }
+            }
+        ]
+    }
+}

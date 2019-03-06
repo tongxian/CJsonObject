@@ -25,6 +25,20 @@ CJsonObject::CJsonObject(const std::string& strJson)
     Parse(strJson);
 }
 
+CJsonObject::ParseFile(const char* filename)
+{
+    FILE *f=fopen(filename,"rb");
+    fseek(f,0,SEEK_END);
+    long len=ftell(f);
+    fseek(f,0,SEEK_SET);
+    char *data=(char*)malloc(len+1);
+    fread(data,1,len,f); fclose(f);
+    std::string strJson=data;
+    m_pJsonData=NULL;
+    m_pExternJsonDataRef=NULL;
+    Parse(strJson);
+}
+
 CJsonObject::CJsonObject(const CJsonObject* pJsonObject)
     : m_pJsonData(NULL), m_pExternJsonDataRef(NULL)
 {

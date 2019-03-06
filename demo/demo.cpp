@@ -1,8 +1,8 @@
 #include <string>
 #include <iostream>
 #include "../CJsonObject.hpp"
-
-int main()
+#if 0
+int main22()
 {
     int iValue;
     std::string strValue;
@@ -47,5 +47,47 @@ int main()
      std::cout << oJson.ToString() << std::endl;
      std::cout << "-------------------------------------------------------------------" << std::endl;
      std::cout << oJson.ToFormattedString() << std::endl;
+     return 0;
+}
+#endif
+cJSON* doit(char *text)
+{
+    cJSON *json;    
+    json=cJSON_Parse(text);
+    return json;
 }
 
+/* Read a file, parse, render back, etc. */
+cJSON* ParseFile(char *filename)
+{
+    cJSON *json;    
+    FILE *f=fopen(filename,"rb");fseek(f,0,SEEK_END);long len=ftell(f);fseek(f,0,SEEK_SET);
+    char *data=(char*)malloc(len+1);fread(data,1,len,f);fclose(f);
+    json=cJSON_Parse(data);
+    cJSON_PrintUnformatted(json);
+    free(data);
+    return json;
+}
+
+int main1()
+{
+     int value ;
+     bool enable;
+     char filename[]="amp_process.json";
+     neb::CJsonObject oj;
+     oj.ParseFile(filename);
+     // oj.Parse("amp_process.json");
+     std::cout << oj.ToString() << std::endl;
+
+     return 0;
+}
+
+int main()
+{
+     #if 1
+     main1();
+     #else
+     main22();
+     #endif 
+     return 0;
+}

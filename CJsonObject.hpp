@@ -32,6 +32,7 @@ class CJsonObject
 public:     // method of ordinary json object or json array
     CJsonObject();
     CJsonObject(const std::string& strJson);
+    ParseFile(const char* filename);
     CJsonObject(const CJsonObject* pJsonObject);
     CJsonObject(const CJsonObject& oJsonObject);
     virtual ~CJsonObject();
